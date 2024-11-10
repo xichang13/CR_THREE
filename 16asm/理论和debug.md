@@ -1,3 +1,14 @@
+- [硬件理论基础](#硬件理论基础)
+  - [CPU](#cpu)
+    - [门电路](#门电路)
+    - [算术/逻辑单元（ALU）](#算术逻辑单元alu)
+  - [计算机硬件](#计算机硬件)
+    - [8086CPU功能结构](#8086cpu功能结构)
+    - [8086CPU寄存器](#8086cpu寄存器)
+- [debug 的使用](#debug-的使用)
+- [标志寄存器](#标志寄存器)
+  - [状态标志](#状态标志)
+  - [控制标志](#控制标志)
 
 # 硬件理论基础
 
@@ -69,7 +80,7 @@ hello world 程序在计算机中的显示过程如下：
 
 ![结构图](pic/理论和debug/image-4.webp)
 
-** 逻辑图**
+**逻辑图**
 
 ![逻辑图](pic/理论和debug/image.webp)
 
@@ -83,25 +94,27 @@ hello world 程序在计算机中的显示过程如下：
 8086CPU有14个寄存器，可以分为通用寄存器、段寄存器和控制/状态寄存器。
 
 * 通用寄存器
-  * 数据寄存器：AX、BX、CX、DX，用于存储数据。
-    * AX：累加器，用于存储运算结果。
-    * BX：基址寄存器，用于存储数据地址。
-    * CX：计数寄存器，用于循环计数。
-    * DX：数据寄存器，用于存储数据。
+  * 数据寄存器
+    * AX、BX、CX、DX，用于存储数据，每个寄存器可以存储16位的数据。
+      * AX(accumulator)：累加器，用于存储运算结果。
+      * BX(base)：基址寄存器，用于存储数据地址。
+      * CX(counter)：计数寄存器，用于循环计数。
+      * DX(data)：数据寄存器，用于存储数据。
+    * AL、BL、CL、DL、AH、BH、CH、DH，每个寄存器可以存储8位的数据。
   * 指针寄存器：SP、BP，用于存储栈顶和基址。
-    * SP：堆栈指针，用于存储栈顶地址。
-    * BP：基址指针，用于存储基址。
+    * SP(stack pointer)：堆栈指针，用于存储栈顶地址。
+    * BP(base pointer)：基址指针，用于存储基址。
   * 变址寄存器：SI、DI，用于存储数据地址。
-    * SI：源变址寄存器，用于存储源数据地址。
-    * DI：目的变址寄存器，用于存储目的数据地址。
+    * SI(source index)：源变址寄存器，用于存储源数据地址。
+    * DI(destination index)：目的变址寄存器，用于存储目的数据地址。
 * 段寄存器
-  * CS：代码段寄存器，用于存储代码段地址。
-  * DS：数据段寄存器，用于存储数据段地址。
-  * SS：堆栈段寄存器，用于存储堆栈段地址。
-  * ES：附加段寄存器，用于存储附加段地址。
+  * CS(code segment)：代码段寄存器，用于存储代码段地址。
+  * DS(data segment)：数据段寄存器，用于存储数据段地址。
+  * SS(stack segment)：堆栈段寄存器，用于存储堆栈段地址。
+  * ES(extra segment)：附加段寄存器，用于存储附加段地址。
 * 控制/状态寄存器
-  * IP：指令指针寄存器，用于存储下一条要执行的指令地址。
-  * FLAGS：标志寄存器，用于存储运算结果的状态标志。
+  * IP(instruction pointer)：指令指针寄存器，用于存储当前要执行的指令地址。
+  * FLAGS(flags register)：标志寄存器，用于存储运算结果的状态标志。
 
 **流水线**
 
@@ -151,13 +164,23 @@ d [start_address l length] ; 查看内存中的数据，长度为length
 e [address] [data/"hello world"] ; 修改指定地址的数据，可以出入字符串
 e [address] ; 从该地址开始，输入数据，空格下一地址，-上一地址，回车退出
 ```
-* g: 执行程序
+* g: 执行程序 - F5
 ``` text
 g [start_address] ; 从指定地址开始执行程序
 ```
-* t: 执行下一条指令
-* p: 执行程序
+* t: 步入 - F11
+* p: 步过 - F10
 * q: 退出debug
+* 写入文件
+  * n: 新建文件并打开
+  * r: 设置写入的起始位置和长度，bx设为起始位置，cx设为长度
+  * w: 写入文件
+``` text
+n hello.bin
+r bx
+r cx
+w
+```
 
 **debug 命令示例**
 
@@ -173,3 +196,28 @@ debug
 -p ; 执行程序
 -q ; 退出debug
 ```
+
+# 标志寄存器
+
+![标志](pic/理论和debug/image-7.webp)
+
+![标志](pic/理论和debug/image-8.webp)
+
+## 状态标志
+
+| 标志 | ture | false | Name(名称) | Description(描述) |
+| --- | --- | --- | --- | --- |
+| OF | OV(overflow) | NV(Not overflow) | Overflow Flag | 是否溢出 |
+| SF | NG(negative) | PL(Plus) | Sign Flag | 正负数 |
+| ZF | ZE(zero) | NZ(Not zero) | Zero Flag | 是否为零 |
+| PF | PE(parity even) | PO(parity odd) | Parity Flag | 二进制中1的个数的奇偶性 |
+| CF | CY(carry) | NC(Not carry) | Carry Flag | 是否进位 |
+| AF | AC(auxiliary carry) | NA(Not auxiliary carry) | Auxiliary Carry Flag | 是否辅助进位 |
+
+## 控制标志
+
+| 标志 | ture | false | Name(名称) | Description(描述) |
+| --- | --- | --- | --- | --- |
+| DF | DN(down) | UP(up) | Direction Flag | 方向标志，决定字符串操作的方向 |
+| IF | EI(enable) | DI(disable) | Interrupt Flag | 中断标志，决定是否响应中断 |
+| TF | TR(trace) | NT(not trace) | Trap Flag | 跟踪标志，决定是否单步执行 |
