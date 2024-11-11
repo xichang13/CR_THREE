@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x5bfb;&#x5740;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#%E5%AF%BB%E5%9D%80">寻址</a></li>
+<li><a href="#%E7%AB%8B%E5%8D%B3%E5%AF%BB%E5%9D%80">立即寻址</a></li>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80">直接寻址</a></li>
+<li><a href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%AF%BB%E5%9D%80">寄存器寻址</a></li>
+<li><a href="#%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80">寄存器间接寻址</a></li>
+<li><a href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80">寄存器相对寻址</a></li>
+<li><a href="#%E5%9F%BA%E5%9D%80%E5%8F%98%E5%9D%80%E5%AF%BB%E5%9D%80">基址变址寻址</a></li>
+<li><a href="#%E5%9F%BA%E5%9D%80%E5%8F%98%E5%9D%80%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80">基址变址相对寻址</a></li>
+</ul>
+<h1 id="寻址">寻址</h1>
+<p>8086CPU的寻址方式有：立即寻址、直接寻址、寄存器寻址、寄存器间接寻址、寄存器相对寻址、基址变址寻址、基址变址相对寻址。</p>
+<h1 id="立即寻址">立即寻址</h1>
+<p>立即数寻址，就是指操作数直接包含在指令中，指令中的操作数就是立即数。汇编中<strong>整数常量</strong>称作<strong>立即数</strong>。立即数可以是8位，也可以是16位。</p>
+<pre><code>mov al, 80h ; 将8位立即数80h送入寄存器al
+mov ax, 1000h ; 将16位立即数1000h送入寄存器ax
+</code></pre>
+<h1 id="直接寻址">直接寻址</h1>
+<p>直接寻址，就是指操作数在内存中，指令中给出的是操作数的地址。</p>
+<pre><code>mov ax, [0] ; 将内存单元0中的数据送入寄存器ax
+</code></pre>
+<h1 id="寄存器寻址">寄存器寻址</h1>
+<p>寄存器寻址，就是指操作数在寄存器中，指令中给出的是寄存器的编号。</p>
+<pre><code>mov ax, bx ; 将寄存器bx中的数据送入寄存器ax
+</code></pre>
+<h1 id="寄存器间接寻址">寄存器间接寻址</h1>
+<p>寄存器间接寻址，就是指操作数在内存中，指令中给出的是操作数所在单元的地址，这个地址在某个寄存器中。简介寻址的寄存器有<code>bx、si、di、bp</code>。其中，<code>bx、si、di</code>默认的段地址是<code>ds</code>，<code>bp</code>默认的段地址是<code>ss</code>。</p>
+<p><img src="pic/%E5%AF%BB%E5%9D%80/image-2.png" alt="寄存器间接寻址"></p>
+<pre><code>mov ax, [bx] ; 将内存单元bx中的数据送入寄存器ax
+</code></pre>
+<h1 id="寄存器相对寻址">寄存器相对寻址</h1>
+<p>寄存器相对寻址，就是指操作数在内存中，指令中给出的是操作数所在单元的地址，这个地址在某个寄存器中，并且在这个寄存器的基础上增加或减少一个位移量。</p>
+<p><img src="pic/%E5%AF%BB%E5%9D%80/image-3.png" alt="寄存器相对寻址"></p>
+<pre><code>mov ax, [bx+0] ; 将内存单元bx中的数据送入寄存器ax
+mov ax, [bx+8] ; 将内存单元bx+8中的数据送入寄存器ax
+mov ax, [bx-8] ; 将内存单元bx-8中的数据送入寄存器ax
+</code></pre>
+<h1 id="基址变址寻址">基址变址寻址</h1>
+<p>基址变址寻址，就是指操作数在内存中，段内偏移由[寄存器+寄存器]计算得来。</p>
+<p>可做基址的寄存器有<code>bx、bp</code>。<code>bx</code>默认的段地址是<code>ds</code>，<code>bp</code>默认的段地址是<code>ss</code>。</p>
+<p>可做变址的寄存器有<code>si、di</code>。</p>
+<p><img src="pic/%E5%AF%BB%E5%9D%80/image-1.png" alt="基址变址寻址"></p>
+<pre><code>mov ax, [bx+si] ; 将内存单元bx+si中的数据送入寄存器ax
+mov ax, [bx+di] ; 将内存单元bx+di中的数据送入寄存器ax
+mov ax, [bp+si] ; 将内存单元bp+si中的数据送入寄存器ax
+mov ax, [bp+di] ; 将内存单元bp+di中的数据送入寄存器ax
+</code></pre>
+<h1 id="基址变址相对寻址">基址变址相对寻址</h1>
+<p>基址变址相对寻址，就是指操作数在内存中，段内偏移由[寄存器+寄存器+位移量]计算得来。</p>
+<p>可做基址的寄存器有<code>bx、bp</code>。<code>bx</code>默认的段地址是<code>ds</code>，<code>bp</code>默认的段地址是<code>ss</code>。</p>
+<p>可做变址的寄存器有<code>si、di</code>。</p>
+<p><img src="pic/%E5%AF%BB%E5%9D%80/image.png" alt="基址变址相对寻址"></p>
+<pre><code>mov ax, [bx+si+8] ; 将内存单元bx+si+8中的数据送入寄存器ax
+mov ax, [bx+di+8] ; 将内存单元bx+di+8中的数据送入寄存器ax
+mov ax, [bp+si+8] ; 将内存单元bp+si+8中的数据送入寄存器ax
+mov ax, [bp+di+8] ; 将内存单元bp+di+8中的数据送入寄存器ax
+</code></pre>
+
+            
+            
+        </body>
+        </html>
