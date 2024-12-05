@@ -31,7 +31,7 @@ CODE_BEGIN: ; 写入的代码
 NEXT:
     pop ebx  ; 获取当前位置
     ; sub ebx, offset NEXT - offset DATA_BEGIN
-    sub ebx, offset NEXT ; 获取偏移
+    sub ebx, offset NEXT ; 获取偏移 使用获取到的偏移加上我的当前偏移即为目标程序所在地址
     
     ; 调用MessageBox
     push MB_OK
