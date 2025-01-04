@@ -1,0 +1,9 @@
+vm_test.exe
+
+1，401000		->	md5
+2,  4016F0		-> 	wnd_proc
+3,  401896		->	winmain
+
+
+
+

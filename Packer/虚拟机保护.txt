@@ -1,0 +1,20 @@
+EDI   => VmContext
+EBP  => 真实的栈
+ESP  => 虚拟机的栈
+ESI   => 操作码(虚拟机 EIP)
+EBX  => 解密的KEY
+
+寄存器的编号:     C0
+VM_CONTEXT
+....
+寄存器的编号
+EAX   	0
+ECX   	4
+EDX   	8
+EBX   	c
+EBP   	10
+ESI    	14
+EDI   	18
+EFLAGS  1C
+OPCODE
+
