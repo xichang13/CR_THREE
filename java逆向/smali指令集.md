@@ -11,6 +11,9 @@
   - [类定义](#类定义)
   - [对象操作](#对象操作)
   - [方法调用](#方法调用)
+  - [异常指令](#异常指令)
+  - [跳转指令](#跳转指令)
+  - [比较](#比较)
 
 <!-- /code_chunk_output -->
 
@@ -82,3 +85,25 @@
 
 * `invoke-kind {vC, vD, vE, vF, vG}, meth@BBBB` - 调用方法，参数少于5个
 * `invoke-kind/range {vCCCC.. vNNNN}, meth@BBBB` - 调用方法，参数多于5个
+
+## 异常指令
+
+* `throw vAA` - 抛出异常
+* `move-exception vAA` - 捕获异常
+
+## 跳转指令
+
+* 无条件跳转
+    * `goto +AA` - 跳转到指定地址 AA为偏移量
+    * `goto/16 +AAAA`
+    * `goto/32 +AAAAAAAA`
+* 条件跳转
+    * `if-test vA, vB, +CCCC` - 比较vA和vB，如果相等则跳转到CCCC
+    * `if-testz vAA, +BBBB` - 比较vAA是否为0，如果为0则跳转到BBBB
+* switch跳转
+    * `packed-switch vAA, +BBBBBBBB` - 有规律
+    * `sparse-switch vAA, +BBBBBBBB` - 无规律
+
+## 比较
+
+* `cmpkind vAA, vBB, vCC` - 比较vBB和vCC，结果存入vAA

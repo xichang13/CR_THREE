@@ -93,3 +93,42 @@ lunch
 ``` bash
 m
 ```
+
+* Port 8077 is used by another process (pid=
+    * 编辑/etc/java-8-openjdk/security/java.security
+    * 找到下面的内容，删除TLSv1和TLSv1.1
+``` shell
+jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \
+    DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL, \
+    include jdk.disabled.namedCurves
+```
+执行下面指令，然后重新开始编译
+``` bash
+jack-admin kill-server
+```
+
+## 刷机
+
+* 编译 adb + fastboot
+``` bash
+m adb fastboot
+```
+* 编译完后目录位于 `/out/host/` ，可以将其设置到环境变量
+* 重启手机到 `bootloader` 模式
+``` bash
+adb reboot bootloader
+```
+* 然后到系统镜像目录下 `/out/target/product/flame` ，执行刷机命令
+``` bash
+fastboot flashall -w
+```
+
+## 虚拟机建议
+
+* 不建议在虚拟机里面操作，建议安装ssh，然后在主机通过shell连接
+``` bash
+# 安装ssh
+sudo apt install -y openssh-server
+# 启动ssh
+sudo service ssh start
+```
