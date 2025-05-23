@@ -73,7 +73,7 @@ ASProtect, Themida, Armadillo, WinLincense ...
 
 # 跳过反调试手段
 
-通过静态分析，找到`jmp register`指令或`call register`指令，将该指定修改为`CC`，运行时启动即时调试器，扎到OPE跳过反调试。
+通过静态分析，找到`jmp register`指令或`call register`指令，将该指定修改为`CC`，运行时启动即时调试器，再到OPE跳过反调试。
 
 # 现代加密体系
 
