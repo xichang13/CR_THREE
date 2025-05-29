@@ -13,6 +13,7 @@
 
 <!-- /code_chunk_output -->
 
+* 使用 `oatdump` 可以查看 oat文件信息
 
 # OatFile::Open
 
