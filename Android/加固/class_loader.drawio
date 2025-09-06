@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="NuzoH0jXBHH_mBY1JRAw" name="第 1 页">
+        <mxGraphModel dx="684" dy="761" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;pre style=&quot;border: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 0); text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;a style=&quot;text-decoration-line: none; color: rgb(32, 48, 162);&quot; data-definition-place=&quot;undefined-in-file&quot; class=&quot;intelliWindow-symbol&quot; href=&quot;http://xrefandroid.com/android-8.1.0_r81/s?defs=ClassLoader&amp;amp;project=libcore&quot;&gt;ClassLoader&lt;/a&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="50" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="3" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;pre style=&quot;border: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 0); text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;a style=&quot;text-decoration-line: none; color: rgb(153, 0, 153); font-weight: bold; font-style: italic;&quot; data-definition-place=&quot;def&quot; class=&quot;xc intelliWindow-symbol&quot; href=&quot;http://xrefandroid.com/android-8.1.0_r81/s?refs=BaseDexClassLoader&amp;amp;project=libcore&quot;&gt;BaseDexClassLoader&lt;/a&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="225" y="160" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;pre style=&quot;border: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 0); text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;a style=&quot;text-decoration-line: none; color: rgb(153, 0, 153); font-weight: bold; font-style: italic;&quot; data-definition-place=&quot;def&quot; class=&quot;xc intelliWindow-symbol&quot; href=&quot;http://xrefandroid.com/android-8.1.0_r81/s?refs=InMemoryDexClassLoader&amp;amp;project=libcore&quot;&gt;InMemoryDexClassLoader&lt;/a&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="218" y="270" width="181" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;pre style=&quot;border: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 0); text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;a style=&quot;text-decoration-line: none; color: rgb(153, 0, 153); font-weight: bold; font-style: italic;&quot; data-definition-place=&quot;def&quot; class=&quot;xc intelliWindow-symbol&quot; href=&quot;http://xrefandroid.com/android-8.1.0_r81/s?refs=PathClassLoader&amp;amp;project=libcore&quot;&gt;PathClassLoader&lt;/a&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="77" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div style=&quot;background-color:#ffffff;color:#080808&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9.8pt;&quot;&gt;&lt;span style=&quot;color:#000000;&quot;&gt;DexClassLoader&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="414" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.553;entryY=0.993;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="6" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0.559;entryY=0.993;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.564;entryY=0.98;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="7" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="双亲委派" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="45" y="48" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="PathClassLoader" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="15" y="94" width="120" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="parent" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="15" y="126" width="120" height="27" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
